@@ -1,0 +1,40 @@
+{
+    "name": "thebasement/translator",
+    "description": "A translation field for Craft CMS ",
+    "type": "craft-plugin",
+    "version": "0.1.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "translator"
+    ],
+    "support": {
+        "docs": "???",
+        "issues": "???"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jan D'Hollander",
+            "homepage": "https://www.thebasement.be/"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+          "thebasement\\translator\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Translator",
+        "handle": "translator",
+        "hasCpSettings": false,
+        "hasCpSection": false,
+        "changelogUrl": "???",
+        "class": "thebasement\\translator\\Translator"
+    }
+}
