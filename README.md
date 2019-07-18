@@ -1,8 +1,8 @@
 # Translator plugin for Craft CMS 3.x
 
-A translation field for Craft CMS 
+A translation field for Craft CMS
 
-![Screenshot](resources/img/plugin-logo.png)
+![Screenshot](resources/img/translator.svg)
 
 ## Requirements
 
@@ -26,9 +26,6 @@ To install the plugin, follow these instructions.
 
 -Insert text here-
 
-## Configuring Translator
-
--Insert text here-
 
 ## Using Translator
 
@@ -36,8 +33,9 @@ To install the plugin, follow these instructions.
 
 ## Translator Roadmap
 
-Some things to do, and ideas for potential features:
-
-* Release it
+* ⌨️ Write documentation
+* 🚀 Release it
 
 Brought to you by [Jan D'Hollander](https://www.thebasement.be/)
+
+## Credits
