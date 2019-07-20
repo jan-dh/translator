@@ -90,11 +90,14 @@ class TranslatorField extends Field
 
     public function getTranslatablesFromTemplates(&$files){
         $translatables = array();
+
         foreach ($files as $key => $value) {
             $html = file_get_contents($value);
             // TODO: change regex
-            if (preg_match('/\'((?:[^\']|\\\\\')*)\'\s*\|\s*t(?:ranslate)?\b/', $html, $matches)) {
-                $translatables[$matches[1]] = $matches[1];
+            if (preg_match_all('/\'((?:[^\']|\\\\\')*)\'\s*\|\s*t(?:ranslate)?\b/', $html, $matches)) {
+                foreach ($matches[1] as $item) {
+                    $translatables[] = $item;
+                }
             }
         }
         return array_unique($translatables);
