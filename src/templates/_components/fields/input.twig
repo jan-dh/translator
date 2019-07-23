@@ -22,32 +22,39 @@
         name:'translator-' ~ name,
 }) }}
 
-<div class="tableview" id="translator-{{field.id}}">
-    <table class="data fullwidth js-translator">
-        <thead>
-            <tr>
-                <td class="checkbox-cell"></td>
-                <th scope="col" title="Titel">{{'Orgineel'|t}}</th>
-                <th scope="col" title="Titel">{{'Vertaling'|t}}</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in options %}
-                <tr data-row="{{loop.index}}">
-                    <td><span class="status {{item.translated ? 'live' : 'pending'}} "></span></td>
-                    <td data-key="{{item.original}}">{{item.original}}</td>
-                    <td>
-                        <div class="field" id="fields-{{field.id}}-{{loop.index}}-field">
-                            <div class="input ltr">
-                                <input class="text fullwidth js-value"
-                                    type="text"
-                                    autocomplete="off"
-                                    placeholder="{{item.translation}}">
-                            </div>
-                        </div>
-                    </td>
+
+{% if options|length < 1 %}
+    {{'No translations selected'|t('translator')}}
+{% else %}
+    <div class="tableview" id="translator-{{field.id}}">
+        <table class="data fullwidth js-translator">
+            <thead>
+                <tr>
+                    <td class="checkbox-cell"></td>
+                    <th scope="col" title="Titel">{{'Orgineel'|t}}</th>
+                    <th scope="col" title="Titel">{{'Vertaling'|t}}</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
+            </thead>
+            <tbody>
+                {% for item in options %}
+                    <tr data-row="{{loop.index}}">
+                        <td><span class="status {{item.translated ? 'live' : 'pending'}} "></span></td>
+                        <td data-key="{{item.original}}">{{item.original}}</td>
+                        <td>
+                            <div class="field" id="fields-{{field.id}}-{{loop.index}}-field">
+                                <div class="input ltr">
+                                    <input class="text fullwidth js-value"
+                                        type="text"
+                                        autocomplete="off"
+                                        placeholder="{{item.translation}}">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endif %}
+
+

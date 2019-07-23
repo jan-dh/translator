@@ -91,12 +91,12 @@ class TranslatorField extends Field
     public function getTranslatablesFromTemplates(&$files){
         $translatables = array();
 
-        foreach ($files as $key => $value) {
+        foreach ($files as $value) {
             $html = file_get_contents($value);
-            // TODO: change regex
-            if (preg_match_all('/\'((?:[^\']|\\\\\')*)\'\s*\|\s*t(?:ranslate)?\b/', $html, $matches)) {
+            if (preg_match_all('/{{([^}]+)\|t(?:ranslate)?\b(?:\|([^}]+)|\s*)}}/', $html, $matches)) {
                 foreach ($matches[1] as $item) {
-                    $translatables[] = $item;
+                    $clean = substr($item, 1, -1);
+                    $translatables[$clean] = $clean;
                 }
             }
         }
@@ -129,15 +129,16 @@ class TranslatorField extends Field
         $translationsFromFile = $this->getTranslationsFromFile();
         $translationsFromTemplate = $this->getTranslatables();
 
-        foreach ($translationsFromTemplate as $key => $value) {
+
+        foreach ($translationsFromTemplate as $item) {
             $translated = false;
             $translatedValue = '';
 
-            if (isset($translationsFromFile[$key]) and $translationsFromFile[$key] != $value and $translationsFromFile[$key] != '')  {
+            if (isset($translationsFromFile[$item]) and $translationsFromFile[$item] != $item and $translationsFromFile[$item] != '')  {
                 $translated = true;
-                $translatedValue=$translationsFromFile[$key];
+                $translatedValue=$translationsFromFile[$item];
             }
-            $results[] = ['original' => $key,'translation' => $translatedValue, 'translated' => $translated ];
+            $results[] = ['original' => $item,'translation' => $translatedValue, 'translated' => $translated ];
         }
         return $results;
     }
