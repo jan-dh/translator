@@ -1,5 +1,5 @@
 {
-    "name": "thebasement/translator",
+    "name": "jandh/translator",
     "description": "A translation field for Craft CMS ",
     "type": "craft-plugin",
     "version": "0.1.0",
@@ -26,7 +26,7 @@
     },
     "autoload": {
         "psr-4": {
-          "thebasement\\translator\\": "src/"
+            "jandh\\translator\\": "src/"
         }
     },
     "extra": {
@@ -35,6 +35,6 @@
         "hasCpSettings": false,
         "hasCpSection": false,
         "changelogUrl": "???",
-        "class": "thebasement\\translator\\Translator"
+        "class": "jandh\\translator\\Translator"
     }
 }

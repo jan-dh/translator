@@ -2,7 +2,7 @@
 /**
  * Translator plugin for Craft CMS 3.x
  *
- * A translation field for Craft CMS 
+ * A translation field for Craft CMS
  *
  * @link      https://www.thebasement.be/
  * @copyright Copyright (c) 2019 Jan D'Hollander

@@ -8,10 +8,10 @@
  * @copyright Copyright (c) 2019 Jan D'Hollander
  */
 
-namespace thebasement\translator\fields;
+namespace jandh\translator\fields;
 
-use thebasement\translator\Translator;
-use thebasement\translator\assetbundles\translatorfield\TranslatorAsset;
+use jandh\translator\Translator;
+use jandh\translator\assetbundles\translatorfield\TranslatorAsset;
 
 use Craft;
 use craft\base\ElementInterface;

@@ -8,9 +8,9 @@
  * @copyright Copyright (c) 2019 Jan D'Hollander
  */
 
-namespace thebasement\translator;
+namespace jandh\translator;
 
-use thebasement\translator\fields\TranslatorField;
+use jandh\translator\fields\TranslatorField;
 
 use Craft;
 use craft\base\Plugin;
