@@ -159,7 +159,8 @@ class TranslatorField extends Field
         Craft::$app->getView()->registerAssetBundle(TranslatorAsset::class);
 
         $id = Craft::$app->getView()->formatInputId($this->handle);
-        $namespacedId = Craft::$app->getView()->namespaceInputId($id);
+        $namespaced = Craft::$app->getView()->namespaceInputId($id);
+
 
         // Variables to pass down to our field JavaScript to let it namespace properly
         $jsonVars = [
@@ -174,9 +175,11 @@ class TranslatorField extends Field
 
         $translationsFromFileWithStatus = $this->setStatusForEachElement();
         $savedOptions = $this->translator;
+
         $options = array_filter($translationsFromFileWithStatus, function($elem) use ($savedOptions){
             return in_array($elem["original"], $savedOptions);
         });
+
 
         // Render the input template
         return Craft::$app->getView()->renderTemplate(

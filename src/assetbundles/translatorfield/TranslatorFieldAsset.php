@@ -37,6 +37,7 @@ class TranslatorAsset extends AssetBundle
 
         $this->js = [
             'js/Translator.js',
+            'js/Reorder.js',
         ];
 
         $this->css = [

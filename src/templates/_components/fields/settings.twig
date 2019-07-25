@@ -18,15 +18,17 @@
 {% do view.registerAssetBundle("jandh\\translator\\assetbundles\\translatorfield\\TranslatorAsset") %}
 
 {% if options|length %}
-    {{ forms.checkboxGroupField({
-        id: field.id,
-        name: 'translator',
-        values:field.translator,
-        options:options,
-        label: "Translate field"|t('translator'),
-        instructions: 'here are some instructions on how to do it',
-        })
-    }}
+    <div class="js-translator">
+        {{ forms.checkboxGroupField({
+            id: field.id,
+            name: 'translator',
+            values:field.translator,
+            options:options,
+            label: "Translate field"|t('translator'),
+            instructions: 'here are some instructions on how to do it',
+            })
+        }}
+    </div>
 {% else %}
     <p>{{'No translations found in the templates'|t}}</p>
 {% endif %}
