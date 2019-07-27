@@ -2,7 +2,7 @@
     "name": "jandh/translator",
     "description": "A translation field for Craft CMS ",
     "type": "craft-plugin",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "keywords": [
         "craft",
         "cms",
@@ -11,8 +11,8 @@
         "translator"
     ],
     "support": {
-        "docs": "???",
-        "issues": "???"
+        "docs": "https://github.com/jan-dh/translator#readme",
+        "issues": "https://github.com/jan-dh/translator/issues"
     },
     "license": "MIT",
     "authors": [
