@@ -15,23 +15,22 @@
 
 {% import "_includes/forms" as forms %}
 
-{# {% include 'translator/_includes/checkbox_group' %} #}
 
 {% do view.registerAssetBundle("jandh\\translator\\assetbundles\\translatorfield\\TranslatorAsset") %}
 
 
+{% set field = {
+    id: field.id,
+    name: 'translator',
+    values: field.translator,
+    options: options,
+    label: "Translate field"|t('translator'),
+    instructions: 'here are some instructions on how to do it',
+} %}
+
 {% if options|length %}
-    <div class="js-translator">
-        {{ forms.checkboxGroupField({
-            id: field.id,
-            name: 'translator',
-            values:field.translator,
-            options:options,
-            label: "Translate field"|t('translator'),
-            instructions: 'here are some instructions on how to do it',
-            })
-        }}
-    </div>
+    {% include 'translator/_includes/checkbox_group' with {field:field} %}
 {% else %}
     <p>{{'No translations found in the templates'|t}}</p>
 {% endif %}
+

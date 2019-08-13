@@ -159,7 +159,7 @@ class TranslatorField extends Field
         Craft::$app->getView()->registerAssetBundle(TranslatorAsset::class);
 
         $id = Craft::$app->getView()->formatInputId($this->handle);
-        $namespaced = Craft::$app->getView()->namespaceInputId($id);
+        $namespacedId = Craft::$app->getView()->namespaceInputId($id);
 
 
         // Variables to pass down to our field JavaScript to let it namespace properly

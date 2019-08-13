@@ -1,75 +1,27 @@
-{#
-    TODO:
-        - namespacing of id ?
-        - instructions
-        - name
-#}
-{#
 <div class="field" id="{{ field.id }}-field">
     <div class="heading">
         <label id="{{ field.id }}-label" for="{{ field.id }}">{{ "Translate field"|t('translator') }}</label>
         <div class="instructions">
-            <p>{{ '' }}</p>
+            <p>{{ field.instructions }}</p>
         </div>
     </div>
     <div class="input ltr">
-        <input type="hidden" name="{{ name }}" value="">
+        <input type="hidden" name="{{ field.name }}" value="">
     </div>
     <div class="checkbox-group">
-        {% for option in options %}
+        {% for option in field.options %}
+            {% set id = 'checkbox'~random() %}
             <div>
-                <input type="checkbox" value={{ option.value }} class="checkbox" id="" name="">
-                <label for="{{ id }}">{{ option.value }}</label>
+                <input
+                    type="checkbox"
+                    value="{{ option }}"
+                    class="checkbox"
+                    id="{{ id }}"
+                    name="{{ field.name }}[]"
+                    {{ option in field.values ? 'checked' }}
+                >
+                <label for="{{ id }}">{{ option }}</label>
             </div>
         {% endfor %}
-    </div>
-</div> #}
-
-<div class="field" id="types-jandh-translator-fields-TranslatorField-6-field">
-    <div class="heading">
-        <label id="types-jandh-translator-fields-TranslatorField-6-label" for="types-jandh-translator-fields-TranslatorField-6">Translate field</label>
-        <div class="instructions">
-            <p>here are some instructions on how to do it</p>
-        </div>
-    </div>
-    <div class="input ltr">
-        <input type="hidden" name="types[jandh\translator\fields\TranslatorField][translator]" value="">
-        <div class="checkbox-group">
-            <div>
-                <a class="move icon" title="Herorden" role="button">&nbsp;</a>
-                <input type="checkbox" value="Alle categorieën" class="checkbox" id="types-jandh-translator-fields-TranslatorField-6" name="types[jandh\translator\fields\TranslatorField][translator][]">
-                <label for="types-jandh-translator-fields-TranslatorField-6">Alle categorieën</label>
-            </div>
-            <div>
-                <a class="move icon" title="Herorden" role="button">&nbsp;</a>
-                <input type="checkbox" value="Begrepen" class="checkbox" id="types-jandh-translator-fields-TranslatorField-checkbox2109022536" name="types[jandh\translator\fields\TranslatorField][translator][]" checked="">
-                <label for="types-jandh-translator-fields-TranslatorField-checkbox2109022536">Begrepen</label>
-            </div>
-            <div>
-                <a class="move icon" title="Herorden" role="button">&nbsp;</a>
-                <input type="checkbox" value="Hmm ok ok" class="checkbox" id="types-jandh-translator-fields-TranslatorField-checkbox128534833" name="types[jandh\translator\fields\TranslatorField][translator][]">
-                <label for="types-jandh-translator-fields-TranslatorField-checkbox128534833">Hmm ok ok</label>
-            </div>
-            <div>
-                <a class="move icon" title="Herorden" role="button">&nbsp;</a>
-                <input type="checkbox" value="home" class="checkbox" id="types-jandh-translator-fields-TranslatorField-checkbox912314039" name="types[jandh\translator\fields\TranslatorField][translator][]" checked="">
-                <label for="types-jandh-translator-fields-TranslatorField-checkbox912314039">home</label>
-            </div>
-            <div>
-                <a class="move icon" title="Herorden" role="button">&nbsp;</a>
-                <input type="checkbox" value="Edit entry" class="checkbox" id="types-jandh-translator-fields-TranslatorField-checkbox1652944675" name="types[jandh\translator\fields\TranslatorField][translator][]" checked="">
-                <label for="types-jandh-translator-fields-TranslatorField-checkbox1652944675">Edit entry</label>
-            </div>
-            <div>
-                <a class="move icon" title="Herorden" role="button">&nbsp;</a>
-                <input type="checkbox" value="Boilerplate test" class="checkbox" id="types-jandh-translator-fields-TranslatorField-checkbox181913487" name="types[jandh\translator\fields\TranslatorField][translator][]">
-                <label for="types-jandh-translator-fields-TranslatorField-checkbox181913487">Boilerplate test</label>
-            </div>
-            <div>
-                <a class="move icon" title="Herorden" role="button">&nbsp;</a>
-                <input type="checkbox" value="&quot;daar" class="checkbox" id="types-jandh-translator-fields-TranslatorField-checkbox64767789" name="types[jandh\translator\fields\TranslatorField][translator][]">
-                <label for="types-jandh-translator-fields-TranslatorField-checkbox64767789">"daar</label>
-            </div>
-        </div>
     </div>
 </div>
