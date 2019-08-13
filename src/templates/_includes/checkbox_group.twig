@@ -1,0 +1,32 @@
+<div class="field" id="{{ field.id }}-field">
+    <div class="heading translator__heading">
+        <label id="{{ field.id }}-label" for="{{ field.id }}">{{ "Translate field"|t('translator') }}</label>
+        <div class="instructions">
+            <p>{{ field.instructions }}</p>
+        </div>
+    </div>
+    <div class="input ltr">
+        <input type="hidden" name="{{ field.name }}" value="">
+    </div>
+    <div class="checkbox-group">
+        {% for option in field.options %}
+            {% set id = 'checkbox'~random() %}
+            <div class="translator__row">
+                <div class="translator__reorder">
+                    <a class="move icon" title="Reorder" role="button">&nbsp;</a>
+                </div>
+                <div>
+                    <input
+                        type="checkbox"
+                        value="{{ option }}"
+                        class="checkbox"
+                        id="{{ id }}"
+                        name="{{ field.name }}[]"
+                        {{ option in field.values ? 'checked' }}
+                    >
+                    <label for="{{ id }}">{{ option }}</label>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
