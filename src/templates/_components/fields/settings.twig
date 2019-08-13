@@ -29,7 +29,9 @@
 } %}
 
 {% if options|length %}
-    {% include 'translator/_includes/checkbox_group' with {field:field} %}
+    <div class="js-translator">
+        {% include 'translator/_includes/checkbox_group' with {field:field} %}
+    </div>
 {% else %}
     <p>{{'No translations found in the templates'|t}}</p>
 {% endif %}
