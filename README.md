@@ -35,8 +35,6 @@ Saving a new translation will add it to the static translations file (`translati
 
 ## Translator Roadmap
 
-* 🚀 Release it
 * 👀 Add modules folder to the translation sources
-* 🔝 Drag and drop order of translations
 
 Brought to you by [Jan D'Hollander](https://www.thebasement.be/)
