@@ -92,11 +92,13 @@ class TranslatorField extends Field
         $translatables = array();
 
         foreach ($files as $value) {
-            $html = file_get_contents($value);
-            if (preg_match_all('/{{([^}]+)\|t(?:ranslate)?\b(?:\|([^}]+)|\s*)}}/', $html, $matches)) {
-                foreach ($matches[1] as $item) {
-                    $clean = substr(trim($item), 1, -1);
-                    $translatables[$clean] = $clean;
+            if (!is_dir($value)) {
+                $html = file_get_contents($value);
+                if (preg_match_all('/{{([^}]+)\|t(?:ranslate)?\b(?:\|([^}]+)|\s*)}}/', $html, $matches)) {
+                    foreach ($matches[1] as $item) {
+                        $clean = substr(trim($item), 1, -1);
+                        $translatables[$clean] = $clean;
+                    }
                 }
             }
         }
