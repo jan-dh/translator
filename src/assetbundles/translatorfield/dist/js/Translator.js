@@ -10,7 +10,7 @@
  * @since     0.1.0TranslatorTranslator
  */
 
- ;(function ( $, window, document, undefined ) {
+;(function ( $, window, document, undefined ) {
 
     var pluginName = "TranslatorTranslator",
         defaults = {
@@ -33,7 +33,7 @@
         init: function(id) {
             var _this = this;
 
-            var field = document.getElementById(_this.options.prefix + 'translator-' + _this.options.field.id);
+            var field = _this.element
             var rows = field.querySelectorAll('[data-row]');
             var results = {};
 
@@ -44,7 +44,7 @@
             })
 
             function updateValues(){
-                var input = document.querySelector('#' +  _this.options.prefix + _this.options.field.id);
+                var input = _this.element.querySelector('input[type="hidden"]');
 
                 $(rows).each(function(i, row){
                     var keyEl = row.querySelector('[data-key]');
