@@ -34,7 +34,7 @@
         "handle": "translator",
         "hasCpSettings": false,
         "hasCpSection": false,
-        "changelogUrl": "???",
+        "changelogUrl": "https://github.com/jan-dh/translator/blob/master/CHANGELOG.md",
         "class": "jandh\\translator\\Translator"
     }
 }
