@@ -179,7 +179,9 @@ class TranslatorField extends Field
         $savedOptions = $this->translator;
 
         $options = array_filter($translationsFromFileWithStatus, function($elem) use ($savedOptions){
-            return in_array($elem["original"], $savedOptions);
+            if($savedOptions){
+                return in_array($elem["original"], $savedOptions);
+            }
         });
 
 
