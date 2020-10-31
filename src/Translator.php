@@ -90,10 +90,15 @@ class Translator extends Plugin
                     if ($translationsFromInput) {
                         $locale = Craft::$app->getSites()->currentSite->language;
                         $translationPath = Craft::$app->Path->getSiteTranslationsPath();
+                        $translationFolder = $translationPath . '/' . $locale;
                         $file = $translationPath . '/' . $locale . '/site.php';
 
 
                         if (!file_exists ($file)) {
+                            // Check if locale dir exists
+                            if (!file_exists($translationFolder)) {
+                                mkdir($translationFolder, 0777, true);
+                            }
                             file_put_contents($file,  '<?php return ' . var_export($translationsFromInput, true) . ';');
                         } else{
                             $translationsFromFile = include $file;
