@@ -115,7 +115,8 @@ class TranslatorField extends Field
     }
 
     public function getTranslationsFromFile(&$translations = array()){
-        $locale = Craft::$app->locale->id;
+        $currentSite = Craft::$app->request->getParam('site');
+        $locale = Craft::$app->sites->getSiteByHandle($currentSite)->language;
 
         $translationPath = Craft::$app->Path->getSiteTranslationsPath();
         $translationFile = $translationPath . '/' . $locale . '/site.php';

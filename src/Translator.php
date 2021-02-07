@@ -88,7 +88,9 @@ class Translator extends Plugin
                     }
 
                     if ($translationsFromInput) {
-                        $locale = Craft::$app->getSites()->currentSite->language;
+                        $currentSite = Craft::$app->request->getParam('site');
+                        $locale = Craft::$app->sites->getSiteByHandle($currentSite)->language;
+
                         $translationPath = Craft::$app->Path->getSiteTranslationsPath();
                         $translationFolder = $translationPath . '/' . $locale;
                         $file = $translationPath . '/' . $locale . '/site.php';
