@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## 1.1.3 - 2021-02-07
+### Fixed
+- Correct way to check current site
+
 ## 1.1.2 - 2020-10-30
 ### Added
 - Better error handling: check for saved options
