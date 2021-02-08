@@ -95,7 +95,6 @@ class Translator extends Plugin
                         $translationFolder = $translationPath . '/' . $locale;
                         $file = $translationPath . '/' . $locale . '/site.php';
 
-
                         if (!file_exists ($file)) {
                             // Check if locale dir exists
                             if (!file_exists($translationFolder)) {
