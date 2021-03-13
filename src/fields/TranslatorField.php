@@ -114,9 +114,7 @@ class TranslatorField extends Field
         return $translatables;
     }
 
-    public function getTranslationsFromFile(&$translations = array()){
-        $currentSite = Craft::$app->request->getParam('site');
-        $locale = Craft::$app->sites->getSiteByHandle($currentSite)->language;
+    public function getTranslationsFromFile($locale, &$translations = array()){
 
         $translationPath = Craft::$app->Path->getSiteTranslationsPath();
         $translationFile = $translationPath . '/' . $locale . '/site.php';
@@ -127,9 +125,9 @@ class TranslatorField extends Field
         return $translations;
     }
 
-    public function setStatusForEachElement(&$results = array()){
+    public function setStatusForEachElement($locale, &$results = array()){
 
-        $translationsFromFile = $this->getTranslationsFromFile();
+        $translationsFromFile = $this->getTranslationsFromFile($locale);
         $translationsFromTemplate = $this->getTranslatables();
 
 
@@ -161,6 +159,8 @@ class TranslatorField extends Field
     {
         Craft::$app->getView()->registerAssetBundle(TranslatorAsset::class);
 
+        $locale = Craft::$app->sites->getSiteById($element->siteId)->language;
+
         $id = Craft::$app->getView()->formatInputId($this->handle);
         $namespacedId = Craft::$app->getView()->namespaceInputId($id);
 
@@ -176,7 +176,7 @@ class TranslatorField extends Field
         $jsonVars = Json::encode($jsonVars);
         Craft::$app->getView()->registerJs("$('#{$namespacedId}-field').TranslatorTranslator(" . $jsonVars . ");");
 
-        $translationsFromFileWithStatus = $this->setStatusForEachElement();
+        $translationsFromFileWithStatus = $this->setStatusForEachElement($locale);
         $savedOptions = $this->translator;
 
         $options = array_filter($translationsFromFileWithStatus, function($elem) use ($savedOptions){

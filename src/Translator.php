@@ -67,17 +67,21 @@ class Translator extends Plugin
             }
         );
 
+        // TODO: Check if event triggers in all sites
         Event::on(
             Elements::class,
             Elements::EVENT_BEFORE_SAVE_ELEMENT,
             function (ElementEvent $event) {
                 $element = $event->element;
-                if (!ElementHelper::isDraftOrRevision($element) and isset($_POST['fields'])) {
+                // Set current Site id
+                $siteId = Craft::$app->request->getBodyParam('siteId');
+                if (!ElementHelper::isDraftOrRevision($element) and isset($_POST['fields']) and ($element->siteId == $siteId)) {
                     $translationsFromInput = [];
+                    $locale = Craft::$app->sites->getSiteById($element->siteId)->language;
+
                     $translatorFields = array_filter($_POST['fields'], function ($key) {
                         return strpos($key, 'translator-') === 0;
                     }, ARRAY_FILTER_USE_KEY);
-
 
                     foreach($translatorFields as $string){
                         $array = json_decode($string, true);
@@ -88,11 +92,9 @@ class Translator extends Plugin
                     }
 
                     if ($translationsFromInput) {
-                        $currentSite = Craft::$app->request->getParam('site');
-                        $locale = Craft::$app->sites->getSiteByHandle($currentSite)->language;
-
                         $translationPath = Craft::$app->Path->getSiteTranslationsPath();
                         $translationFolder = $translationPath . '/' . $locale;
+
                         $file = $translationPath . '/' . $locale . '/site.php';
 
                         if (!file_exists ($file)) {
