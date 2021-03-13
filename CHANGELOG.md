@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.1.4 - 2021-03-13
+### Fixed
+- Correct way to check current site
+
+## 1.1.4 - 2021-02-08
+### Update
+- Composer update
 
 ## 1.1.3 - 2021-02-07
 ### Fixed
