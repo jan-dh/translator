@@ -64,12 +64,12 @@ class TranslatorField extends Field
         return Schema::TYPE_STRING;
     }
 
-    public function normalizeValue($value, ElementInterface $element = null)
+    public function normalizeValue(mixed $value, ?\craft\base\ElementInterface $element = null): mixed
     {
         return $value;
     }
 
-    public function serializeValue($value, ElementInterface $element = null)
+    public function serializeValue(mixed $value, ?\craft\base\ElementInterface $element = null): mixed
     {
         return parent::serializeValue($value, $element);
     }
@@ -144,7 +144,7 @@ class TranslatorField extends Field
         return $results;
     }
 
-    public function getSettingsHtml()
+    public function getSettingsHtml(): ?string
     {
         return Craft::$app->getView()->renderTemplate(
             'translator/_components/fields/settings',
@@ -155,7 +155,7 @@ class TranslatorField extends Field
         );
     }
 
-    public function getInputHtml($value, ElementInterface $element = null): string
+    public function getInputHtml(mixed $value, ?\craft\base\ElementInterface $element = null): string
     {
         Craft::$app->getView()->registerAssetBundle(TranslatorAsset::class);
 
