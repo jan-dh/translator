@@ -1,4 +1,4 @@
-# Translator plugin for Craft CMS 3.x
+# Translator plugin for Craft CMS 3.x & 4.x
 
 A translation field for Craft CMS to add translatable text snippets from your templates to entries, channels, globals.
 
@@ -6,7 +6,7 @@ A translation field for Craft CMS to add translatable text snippets from your te
 
 ## Requirements
 
-This plugin requires Craft CMS 3.0.0-beta.23 or later.
+This plugin requires Craft CMS 3.x or 4.x.
 
 ## Installation
 
