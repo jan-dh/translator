@@ -73,8 +73,14 @@ class Translator extends Plugin
             Elements::EVENT_BEFORE_SAVE_ELEMENT,
             function (ElementEvent $event) {
                 $element = $event->element;
+
                 // Set current Site id
-                $siteId = Craft::$app->request->getBodyParam('siteId');
+                if (!Craft::$app->request->isConsoleRequest) {
+                    $siteId = Craft::$app->request->getBodyParam('siteId');
+                } else {
+                    $siteId = Craft::$app->sites->getPrimarySite()->id;
+                }
+
                 if (!ElementHelper::isDraftOrRevision($element) and isset($_POST['fields']) and ($element->siteId == $siteId)) {
                     $translationsFromInput = [];
                     $locale = Craft::$app->sites->getSiteById($element->siteId)->language;
