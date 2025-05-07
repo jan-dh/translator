@@ -22,7 +22,7 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/register": "^7.5.5",
     "babel-loader": "^8.3.0",
-    "webpack": "^5.76.0",
+    "webpack": "^5.99.7",
     "webpack-cli": "^5.0.1"
   },
   "dependencies": {
